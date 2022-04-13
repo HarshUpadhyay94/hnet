@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15 Jan, 2022 4:45:01 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="in.co.sunrays.mapping.Auction" table="AUCTION">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="desc" type="java.lang.String">
+            <column name="DESC" />
+        </property>
+        <set name="bids" table="BID" inverse="false" cascade="all">
+            <key>
+                <column name="ITEMID" />
+            </key>
+            <one-to-many class="in.co.sunrays.mapping.Bid" />
+        </set>
+    </class>
+</hibernate-mapping>
